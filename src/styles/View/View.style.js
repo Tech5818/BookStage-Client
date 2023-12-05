@@ -3,22 +3,29 @@ import { StyleSheet } from "react-native";
 const ViewScreenStyle = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: "white",
+        backgroundColor: "#0C0D0C",
         alignItems: "center",
         justifyContent: "center"
     },
 
+    backIcon: {
+        position: "absolute",
+        top: 30,
+        left: 10,
+        zIndex: 1
+    },
+
     wrap: {
-        // flex: 1,
         height: "auto",
         gap: 30,
-        // justifyContent: "space-around"
     },
 
     userAction: {
         height: 20,
         flexDirection: "row",
-        justifyContent: "space-around",
+        width: 260,
+        alignSelf: "center",
+        gap: 10
     },
 
     bookImage: {
@@ -30,17 +37,21 @@ const ViewScreenStyle = StyleSheet.create({
     bookTitle: {
         fontSize: 24,
         width: 280,
-        textAlign: "center"
+        textAlign: "center",
+        color: "white",
+        fontWeight: "bold"
     },
 
     bookAuthor: {
         fontSize: 16,
         width: 240,
-        textAlign: "center"
+        textAlign: "center",
+        color: "gray"
     },
 
     bookDescription: {
         width: 280,
+        color: "gray"
     },
 
     textWrap: {
