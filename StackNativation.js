@@ -3,7 +3,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 
 const Stack = createStackNavigator();
 
-export const StackNavigation = ({name, component}) => {
+export const StackNavigation = ({name, component, children}) => {
     return(
         <>
             <Stack.Navigator>
@@ -12,6 +12,7 @@ export const StackNavigation = ({name, component}) => {
                     component={component} 
                     options={{headerShown: false}}
                 />
+                {children}
             </Stack.Navigator>
         </>
     )

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "915511860118",
+    "project_id": "bookstage-632ad",
+    "storage_bucket": "bookstage-632ad.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:915511860118:android:f914a64d6bf9f28b49dbb7",
+        "android_client_info": {
+          "package_name": "com.webapp.bookstage"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAtUx-rv1GRNa3fVe8iB51SX6YAXit-u2Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
