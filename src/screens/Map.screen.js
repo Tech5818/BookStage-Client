@@ -32,8 +32,8 @@ const MapScreen = () => {
                 <MapView style={MapScreenStyle.map} initialRegion={{
                     latitude: location.coords.latitude,
                     longitude: location.coords.longitude,
-                    latitudeDelta: 0.01,
-                    longitudeDelta: 0.01,
+                    latitudeDelta: 0.00922,
+                    longitudeDelta: 0.00321,
                 }} />
             </View>
         }

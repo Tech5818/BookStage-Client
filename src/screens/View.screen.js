@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Image, Text, View } from "react-native";
 import getOneBookData from "../apis/books/getOneBookData";
 import ViewScreenStyle from "../styles/View/View.style";
-import { TouchableOpacity } from "react-native-gesture-handler";
+import { ScrollView, TouchableOpacity } from "react-native-gesture-handler";
 import { AntDesign } from '@expo/vector-icons';
 import { FontAwesome } from '@expo/vector-icons';
 import BookImage from "../components/home/BookImage.comp";
@@ -15,7 +15,6 @@ const ViewScreen = ({ navigation }) => {
         title: "",
     });
     const [isLoading, setIsLoading] = useState(true);
-    const [isPopup, setIsPopup] = useState(false);
     const [isPressedHeart, setIsPressedHeart] = useState(false);
     const [isPressedBookmark, setIsPressedBookmark] = useState(false);
 
@@ -28,10 +27,6 @@ const ViewScreen = ({ navigation }) => {
 
         loadBookData();
     }, []);
-
-    const popUpDescriptionHandler = () => {
-        setIsPopup(true);
-    }
 
     const clickHeartIconHandler = () => {
         // call api
@@ -57,16 +52,13 @@ const ViewScreen = ({ navigation }) => {
                 <View style={ViewScreenStyle.textWrap}>
                     <Text numberOfLines={1} style={ViewScreenStyle.bookTitle}>{bookData.title}</Text>
                     <Text style={ViewScreenStyle.bookAuthor}>{bookData.author}</Text>
-                    <TouchableOpacity onPress={popUpDescriptionHandler}>
-                        <Text style={ViewScreenStyle.bookDescription} numberOfLines={5}>{bookData.description}</Text>
-                    </TouchableOpacity>
+                    <ScrollView style={ViewScreenStyle.descriptionWrap}>
+                        <Text style={ViewScreenStyle.bookDescription} >{bookData.description}</Text>
+                    </ScrollView>
                 </View>
             </View>
         }
-        {
-            isPopup && <View style={ViewScreenStyle.popup}></View>
-        }
-    </View>
+    </View >
 }
 
 export default ViewScreen;
