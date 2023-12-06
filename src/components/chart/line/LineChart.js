@@ -1,11 +1,11 @@
 import { View, Text } from "react-native";
+import { LineChart } from "react-native-gifted-charts";
 
-export const LineChart = () => {
+export const BreakChart = () => {
+    const data = [{value: 15}, {value: 30}, {value: 26}, {value: 40}];
     return(
         <View>
-            <Text>
-                라인 차트
-            </Text>
+            <LineChart data={data}/>
         </View>
     )   
 }
