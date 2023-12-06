@@ -59,6 +59,15 @@ const ViewScreenStyle = StyleSheet.create({
         justifyContent: "center",
         alignItems: "center",
         gap: 30
+    },
+
+    popup: {
+        position: "absolute",
+        width: "80%",
+        height: "50%",
+        backgroundColor: "red",
+        top: 100,
+        left: 30,
     }
 })
 

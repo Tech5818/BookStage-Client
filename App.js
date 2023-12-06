@@ -1,6 +1,6 @@
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
-import { HomeScreen, LoginScreen, JoinScreen, ChartScreen, ViewScreen, RecordScreen, MyScreen } from "./src/screens/index";
+import { HomeScreen, LoginScreen, JoinScreen, ChartScreen, ViewScreen, RecordScreen, MyScreen, MapScreen } from "./src/screens/index";
 import { SafeAreaView } from 'react-native';
 import AppStyle from './src/styles/App.style';
 
@@ -18,6 +18,7 @@ export default function App() {
         <NavigatorStack.Screen name="My" component={MyScreen} />
         <NavigatorStack.Screen name="Chart" component={ChartScreen} />
         <NavigatorStack.Screen name="Record" component={RecordScreen} />
+        <NavigatorStack.Screen name="Map" component={MapScreen} options={{ title: "도서관 지도" }} />
         <NavigatorStack.Screen name="View" component={ViewScreen} options={{ headerShown: false }} />
       </NavigatorStack.Navigator>
     </NavigationContainer>

@@ -30,7 +30,7 @@ const ViewScreen = ({ navigation }) => {
     }, []);
 
     const popUpDescriptionHandler = () => {
-
+        setIsPopup(true);
     }
 
     const clickHeartIconHandler = () => {
@@ -62,6 +62,9 @@ const ViewScreen = ({ navigation }) => {
                     </TouchableOpacity>
                 </View>
             </View>
+        }
+        {
+            isPopup && <View style={ViewScreenStyle.popup}></View>
         }
     </View>
 }
