@@ -3,7 +3,7 @@ import { StyleSheet } from "react-native";
 const ViewScreenStyle = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: "#0C0D0C",
+        backgroundColor: "white",
         alignItems: "center",
         justifyContent: "center"
     },
@@ -38,7 +38,7 @@ const ViewScreenStyle = StyleSheet.create({
         fontSize: 24,
         width: 280,
         textAlign: "center",
-        color: "white",
+        color: "black",
         fontWeight: "bold"
     },
 
@@ -51,15 +51,22 @@ const ViewScreenStyle = StyleSheet.create({
 
     bookDescription: {
         width: 280,
-        color: "gray"
+        padding: 10,
+        color: "gray",
     },
+
+    descriptionWrap: {
+        padding: 10,
+        height: "auto"
+    },
+
 
     textWrap: {
         height: 200,
         justifyContent: "center",
         alignItems: "center",
         gap: 30
-    }
+    },
 })
 
 export default ViewScreenStyle;
