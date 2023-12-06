@@ -1,12 +1,38 @@
-import { View, Text } from "react-native"
-import { BarChart } from "react-native-gifted-charts";
+import { View, Text, StyleSheet } from "react-native"
+import { chartConfig } from "../ChartConfig";
+import { BarChart } from "react-native-chart-kit";
+
+const styles = StyleSheet.create({
+    container:{
+        flex:1,
+        alignItems:"center",
+        overflow:"hidden"
+    },
+    graph : {
+        backgroundColor:"#ccc"
+    }
+})
 
 export const StickChart = () => {
-    const barData = [{value: 15}, {value: 30}, {value: 26}, {value: 40}];
+    const data = {
+        labels: ["January", "February", "March", "April", "May", "June"],
+        datasets: [
+          {
+            data: [20, 45, 28, 80, 99, 43]
+          }
+        ]
+      };
     return(
-        <View>
-            <BarChart 
-                data={barData}
+        <View style={styles.container}>
+            <BarChart
+              style={styles.graph}
+              data={data}
+              width={250}
+              height={200}
+              yAxisLabel="$"
+              chartConfig={chartConfig}
+              verticalLabelRotation={30}
+              
             />
         </View>
     )
