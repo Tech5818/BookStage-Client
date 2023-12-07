@@ -1,4 +1,4 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, Dimensions } from "react-native";
 
 const ViewScreenStyle = StyleSheet.create({
     container: {
@@ -16,29 +16,24 @@ const ViewScreenStyle = StyleSheet.create({
     },
 
     wrap: {
-        height: "auto",
-        gap: 30,
-    },
-
-    userAction: {
-        height: 20,
-        flexDirection: "row",
-        width: 260,
-        alignSelf: "center",
-        gap: 10
+        height: Dimensions.get("screen").height,
+        // position: "relative",
     },
 
     bookImage: {
+        alignSelf: "center",
         width: 320,
         height: 360,
         resizeMode: "contain",
+        zIndex: 100,
+        marginTop: 80
     },
 
     bookTitle: {
         fontSize: 24,
         width: 280,
         textAlign: "center",
-        color: "black",
+        color: "white",
         fontWeight: "bold"
     },
 
@@ -46,27 +41,51 @@ const ViewScreenStyle = StyleSheet.create({
         fontSize: 16,
         width: 240,
         textAlign: "center",
-        color: "gray"
+        color: "white"
+    },
+    scrollView: {
+        paddingBottom: 100
     },
 
     bookDescription: {
-        width: 280,
+        width: 300,
         padding: 10,
-        color: "gray",
+        color: "white",
+        textAlign: "justify",
     },
 
-    descriptionWrap: {
-        padding: 10,
-        height: "auto"
+    bar: {
+        height: 8,
+        width: 200,
+        backgroundColor: "white",
+        borderRadius: 30,
+        alignSelf: "center",
     },
-
 
     textWrap: {
-        height: 200,
-        justifyContent: "center",
+        marginTop: 30,
+        paddingTop: 10,
+        width: Dimensions.get("window").width,
+        justifyContent: "space-around",
         alignItems: "center",
-        gap: 30
+        gap: 10,
+        backgroundColor: "#044E34",
+        borderTopLeftRadius: 50,
+        borderTopRightRadius: 50,
+        position: "relative",
+        left: 0,
+        bottom: 0,
+        zIndex: 100
     },
+
+    topBackgroundCircle: {
+        position: "absolute",
+        top: -150,
+        width: Dimensions.get("screen").width,
+        height: 300,
+        backgroundColor: "orange",
+        borderRadius: 150
+    }
 })
 
 export default ViewScreenStyle;

@@ -19,7 +19,7 @@ export default function App() {
         <NavigatorStack.Screen name="Chart" component={ChartScreen} />
         <NavigatorStack.Screen name="Record" component={RecordScreen} />
         <NavigatorStack.Screen name="Map" component={MapScreen} options={{ title: "도서관 지도" }} />
-        <NavigatorStack.Screen name="View" component={ViewScreen} options={{ headerShown: false }} />
+        <NavigatorStack.Screen name="View" component={ViewScreen} options={{ title: "" }} />
       </NavigatorStack.Navigator>
     </NavigationContainer>
   </SafeAreaView>)

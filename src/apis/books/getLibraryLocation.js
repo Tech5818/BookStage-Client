@@ -1,7 +1,7 @@
 import axios from "axios"
 
 const getLibraryLocation = async () => {
-    const { data: { data } } = await axios.get("http://ec2-13-125-232-69.ap-northeast-2.compute.amazonaws.com:3000/book/library");
+    const { data: { data } } = await axios.get("https://port-0-bookstage-server-342mg2blpvd1bii.sel4.cloudtype.app/book/library");
 
     const locationArray = [];
 
