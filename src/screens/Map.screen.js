@@ -47,7 +47,6 @@ const MapScreen = () => {
                 }} >
                     {
                         libraries && libraries.map((value, idx) => {
-                            console.log(value);
                             return <Marker
                                 key={idx}
                                 coordinate={{
