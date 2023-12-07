@@ -1,12 +1,31 @@
-import { View } from "react-native"
-import { ChartIcon } from "../icons"
-import { Text } from "react-native"
+import { TouchableOpacity, Text } from "react-native";
+import { ChartIcon } from "../icons";
+import { BottomBarStyle } from "../../../styles/BottomBar/BottomBar.style";
+import { useNavigation } from "@react-navigation/core";
 
-export const Chart = ({text}) => {
+export const Chart = ({text, value, isSelect, setSelect}) => {
+    const navigation = useNavigation();
+
+    const reverseSelect = (value) => {
+        for (const key in isSelect) {
+            if (key !== value) {
+                isSelect[key] = false;
+            }
+        }
+        const newIsSelect = {
+            ...isSelect,
+            [value]: true
+        }
+        setSelect(newIsSelect)
+    }
+    const handelSelcted = () => {
+        reverseSelect(value);
+        navigation.navigate("Chart")
+    }
     return(
-        <View>
-            <ChartIcon/>
-            <Text>{text}</Text>
-        </View>
+        <TouchableOpacity onPress={handelSelcted} style={BottomBarStyle.BottomMenu}>
+            <ChartIcon selected={isSelect[value]}/>
+            <Text style={isSelect[value] ? {color: "black", fontWeight: "bold"} : {color: "gray", fontWeight: "normal"}}>{text}</Text>
+        </TouchableOpacity>
     )
 }

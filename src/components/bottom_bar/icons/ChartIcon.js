@@ -1,13 +1,13 @@
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import { faChartSimple } from "@fortawesome/free-solid-svg-icons";
-import { ActiveIconColor } from "./color/Color";
+import { ActiveIconColor, UnActiveIconColor } from "./color/Color";
 import { IconsSize } from "./size/Size";
 
-export const ChartIcon = () => {
+export const ChartIcon = ({selected}) => {
     return(
         <FontAwesomeIcon
             icon={faChartSimple}
-            color={ActiveIconColor}
+            color={selected ? ActiveIconColor : UnActiveIconColor}
             size={IconsSize}
         />
     )

@@ -6,7 +6,7 @@ const { width, height } = Dimensions.get("window");
 export const BottomBarStyle = StyleSheet.create({
     Bar: {
         width: width,
-        height: height*0.07,
+        height: height*0.08,
         backgroundColor: "#fff",
     },
     BarShadow: {
@@ -14,13 +14,13 @@ export const BottomBarStyle = StyleSheet.create({
         backgroundColor: "#fff",
         elevation: 1
     },
-    RadioStyle: {
-        height: height*0.07-1,
+    BottomMenus: {
+        height: height*0.08-1,
         flexDirection: "row",
         justifyContent: "space-around",
         alignItems: "center",
     },
-    RadioItemsStyle: {
-        display: "none"
+    BottomMenu: {
+        alignItems: "center"
     }
 })

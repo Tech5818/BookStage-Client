@@ -1,13 +1,13 @@
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import { faMap } from "@fortawesome/free-solid-svg-icons";
-import { ActiveIconColor } from "./color/Color";
+import { ActiveIconColor, UnActiveIconColor } from "./color/Color";
 import { IconsSize } from "./size/Size";
 
-export const MapIcon = () => {
+export const MapIcon = ({selected}) => {
     return(
         <FontAwesomeIcon
             icon={faMap}
-            color={ActiveIconColor}
+            color={selected ? ActiveIconColor : UnActiveIconColor}
             size={IconsSize}
         />
     )

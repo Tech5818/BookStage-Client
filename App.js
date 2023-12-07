@@ -22,8 +22,8 @@ export default function App() {
         <NavigatorStack.Screen name="Map" component={MapScreen} options={{ title: "도서관 지도" }} />
         <NavigatorStack.Screen name="View" component={ViewScreen} options={{ headerShown: false }} />
       </NavigatorStack.Navigator>
+      <BottomBar/>
     </NavigationContainer>
-    <BottomBar/>
   </SafeAreaView>)
 }
 
