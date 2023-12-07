@@ -1,8 +1,27 @@
-import { ScrollView,View, Text } from "react-native";
+import { ScrollView,View, Text, StyleSheet } from "react-native";
 import { CircleChart } from "../components/chart/circle/CircleChart";
 import { BreakChart } from "../components/chart/line/LineChart";
 import { TextChart } from "../components/chart/text/TextChart";
 import { StickChart } from "../components/chart/bar/BarChart";
+
+const styles = StyleSheet.create({
+    container:{
+        display:"flex",
+        flexDirection:"column",
+        alignContent:"center",
+        paddingHorizontal:10
+    },
+    item:{
+        backgroundColor:"#f3cf98",
+        borderRadius:15,
+        marginVertical:10,
+        flex:1,
+        display:"flex",
+        alignContent:"center",
+        justifyContent:"center",
+        // height:100
+    }
+})
 
 const ChartScreen = () => {
     // 스택헤서 헤더 X
@@ -12,21 +31,39 @@ const ChartScreen = () => {
     // 월마다 읽은 책 그래프 (꺾은선)
     return(
         <ScrollView>
-            <View>
+            <View style={styles.container}>
                 <View>
                     <Text>
                         차트 스크린
                     </Text>
                 </View>
-                <ScrollView
-                    horizontal={true}
-                    showHorizontalScrollIndicator={false}
-                >
-                    <TextChart />
-                </ScrollView>
-                <CircleChart />
-                    <StickChart />
-                    <BreakChart />
+                <View style={styles.item}>
+                    <ScrollView
+                        horizontal={true}
+                        showHorizontalScrollIndicator={false}
+                    >
+                        <TextChart />
+                    </ScrollView>
+                </View>
+                <View style={styles.item}>
+                    <CircleChart />
+                </View>
+                <View style={styles.item}>
+                    <ScrollView
+                        horizontal={true}
+                        showHorizontalScrollIndicator={false}
+                    >
+                        <StickChart />
+                    </ScrollView>
+                </View>
+                <View style={styles.item}>
+                    <ScrollView
+                        horizontal={true}
+                        showHorizontalScrollIndicator={false}
+                    >
+                        <BreakChart />
+                    </ScrollView>
+                </View>
             </View>
         </ScrollView>
     )
