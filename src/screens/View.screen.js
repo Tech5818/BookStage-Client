@@ -46,8 +46,8 @@ const ViewScreen = ({ navigation }) => {
             <View style={ViewScreenStyle.wrap}>
                 <BookImage source={bookData.image} />
                 <View style={ViewScreenStyle.userAction}>
-                    <AntDesign size={20} color={isPressedHeart ? "red" : "white"} name="heart" onPress={() => clickHeartIconHandler()} />
-                    <FontAwesome size={20} color={isPressedBookmark ? "red" : "white"} name="bookmark" onPress={() => clickBookMarkHandler()} />
+                    <AntDesign size={20} color={isPressedHeart ? "red" : "black"} name="heart" onPress={() => clickHeartIconHandler()} />
+                    <FontAwesome size={20} color={isPressedBookmark ? "red" : "black"} name="bookmark" onPress={() => clickBookMarkHandler()} />
                 </View>
                 <View style={ViewScreenStyle.textWrap}>
                     <Text numberOfLines={1} style={ViewScreenStyle.bookTitle}>{bookData.title}</Text>

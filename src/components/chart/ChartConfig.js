@@ -3,8 +3,9 @@ export const chartConfig = {
     backgroundGradientFromOpacity: 0,
     // backgroundGradientTo: "#fff",
     backgroundGradientToOpacity: 0,
-    color: (opacity = 1) => `rgba(50, 50, 50, ${opacity})`,
+    color: (opacity = 1) => `rgba(100, 50, 50, ${opacity})`,
     strokeWidth: 2, // optional, default 3
     barPercentage: 0.5,
     useShadowColorFromDataset: false,
+    decimalPlaces: 0,
 };

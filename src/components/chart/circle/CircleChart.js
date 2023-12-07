@@ -1,6 +1,7 @@
 import { View, Text, StyleSheet } from "react-native";
 import { chartConfig } from "../ChartConfig";
 import { PieChart } from "react-native-chart-kit";
+import { useEffect } from "react";
 
 const styles = StyleSheet.create({
     container:{
@@ -17,6 +18,48 @@ const styles = StyleSheet.create({
 })
 
 export const CircleChart = () => {
+  useEffect(()=>{
+    genreData = ["장르1", "장르2","장르3","장르4", "기타"],
+    perData = ["20", "40", "30", "7", "3"]
+    const chartData = [
+      {
+        name : genreData[0],
+        percentage : perData[0],
+        //color는 원 그래프에 나올 색
+        color: "#000",
+        legendFontColor: "#7F7F7F",
+        legendFontSize: 12,
+      },
+      {
+        name : genreData[0],
+        percentage : perData[0],
+        color: "#000",
+        legendFontColor: "#7F7F7F",
+        legendFontSize: 12,
+      },
+      {
+        name : genreData[0],
+        percentage : perData[0],
+        color: "#000",
+        legendFontColor: "#7F7F7F",
+        legendFontSize: 12,
+      },
+      {
+        name : genreData[0],
+        percentage : perData[0],
+        color: "#000",
+        legendFontColor: "#7F7F7F",
+        legendFontSize: 12,
+      },
+      {
+        name : genreData[0],
+        percentage : perData[0],
+        color: "#000",
+        legendFontColor: "#7F7F7F",
+        legendFontSize: 12,
+      }
+    ]
+  }, [])
     const data = [
         {
           name: "Seoul",

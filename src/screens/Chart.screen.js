@@ -19,7 +19,6 @@ const styles = StyleSheet.create({
         display:"flex",
         alignContent:"center",
         justifyContent:"center",
-        // height:100
     }
 })
 
