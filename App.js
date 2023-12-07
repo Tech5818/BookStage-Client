@@ -2,6 +2,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
 import { HomeScreen, LoginScreen, JoinScreen, ChartScreen, ViewScreen, RecordScreen, MyScreen, MapScreen } from "./src/screens/index";
 import { SafeAreaView } from 'react-native';
+import { BottomBar } from './src/components/bottom_bar/BottomBar';
 import AppStyle from './src/styles/App.style';
 
 const NavigatorStack = createStackNavigator();
@@ -19,8 +20,9 @@ export default function App() {
         <NavigatorStack.Screen name="Chart" component={ChartScreen} />
         <NavigatorStack.Screen name="Record" component={RecordScreen} />
         <NavigatorStack.Screen name="Map" component={MapScreen} options={{ title: "도서관 지도" }} />
-        <NavigatorStack.Screen name="View" component={ViewScreen} options={{ headerShown: false }} />
+        <NavigatorStack.Screen name="View" component={ViewScreen} options={{ title: "" }} />
       </NavigatorStack.Navigator>
+      <BottomBar/>
     </NavigationContainer>
   </SafeAreaView>)
 }
