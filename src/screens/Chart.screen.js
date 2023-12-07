@@ -19,7 +19,6 @@ const styles = StyleSheet.create({
         display:"flex",
         alignContent:"center",
         justifyContent:"center",
-        // height:100
     }
 })
 
@@ -49,10 +48,20 @@ const ChartScreen = () => {
                     <CircleChart />
                 </View>
                 <View style={styles.item}>
-                    <StickChart />
+                    <ScrollView
+                        horizontal={true}
+                        showHorizontalScrollIndicator={false}
+                    >
+                        <StickChart />
+                    </ScrollView>
                 </View>
                 <View style={styles.item}>
-                    <BreakChart />
+                    <ScrollView
+                        horizontal={true}
+                        showHorizontalScrollIndicator={false}
+                    >
+                        <BreakChart />
+                    </ScrollView>
                 </View>
             </View>
         </ScrollView>

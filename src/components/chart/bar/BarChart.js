@@ -9,30 +9,31 @@ const styles = StyleSheet.create({
         overflow:"hidden"
     },
     graph : {
-        backgroundColor:"#ccc"
+        // backgroundColor:"#ccc"
     }
 })
 
 export const StickChart = () => {
     const data = {
-        labels: ["January", "February", "March", "April", "May", "June"],
+        labels: ["1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월"],
         datasets: [
           {
-            data: [20, 45, 28, 80, 99, 43]
+            data: [5, 7, 2, 10, 3, 3, 2, 5, 1, 3, 8, 2],
           }
-        ]
+        ],
+        
       };
     return(
         <View style={styles.container}>
             <BarChart
               style={styles.graph}
               data={data}
-              width={250}
+              width={450}
               height={200}
-              yAxisLabel="$"
               chartConfig={chartConfig}
-              verticalLabelRotation={30}
-              
+            //   verticalLabelRotation={30}
+              showBarTops
+              fromZero
             />
         </View>
     )
