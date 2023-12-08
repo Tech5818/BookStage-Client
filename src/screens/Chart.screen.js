@@ -31,11 +31,6 @@ const ChartScreen = () => {
     return(
         <ScrollView>
             <View style={styles.container}>
-                <View>
-                    <Text>
-                        차트 스크린
-                    </Text>
-                </View>
                 <View style={styles.item}>
                     <ScrollView
                         horizontal={true}
