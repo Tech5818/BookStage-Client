@@ -6,5 +6,6 @@ import RecordScreen from "./Record.screen";
 import ViewScreen from "./View.screen";
 import ChartScreen from "./Chart.screen";
 import MapScreen from "./Map.screen";
+import SearchScreen from "./Search.screen";
 
-export { HomeScreen, JoinScreen, LoginScreen, MyScreen, RecordScreen, ViewScreen, ChartScreen, MapScreen };
+export { HomeScreen, JoinScreen, LoginScreen, MyScreen, RecordScreen, ViewScreen, ChartScreen, MapScreen, SearchScreen };
