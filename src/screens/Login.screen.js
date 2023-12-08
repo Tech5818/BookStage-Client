@@ -4,7 +4,7 @@ import { useState } from "react";
 import postLoginHandler from "../apis/users/postLogin";
 import { useNavigation } from "@react-navigation/core";
 
-const LoginScreen = () => {
+const LoginScreen = ({ isLogin: { isLogin, setIsLogin } }) => {
     const navigator = useNavigation();
 
     const [email, setEmail] = useState();
@@ -12,6 +12,11 @@ const LoginScreen = () => {
 
     const SubmitLoginHandler = async () => {
         const data = await postLoginHandler(email, password);
+
+        if (!!data) {
+            // storage에 저장해주세용
+            setIsLogin(true);
+        }
     }
 
     return (
@@ -42,8 +47,8 @@ const LoginScreen = () => {
                     />
                 </View>
                 <View style={LoginStyle.ButtonSection}>
-                    <TouchableOpacity style={LoginStyle.Button}>
-                        <Text style={LoginStyle.ButtonText} onPress={SubmitLoginHandler}>
+                    <TouchableOpacity style={LoginStyle.Button} onPress={SubmitLoginHandler}>
+                        <Text style={LoginStyle.ButtonText} >
                             로그인
                         </Text>
                     </TouchableOpacity>
