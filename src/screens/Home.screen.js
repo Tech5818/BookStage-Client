@@ -2,7 +2,7 @@ import { View, TextInput, Text, Image, TouchableOpacity } from "react-native";
 import { HomeScreenStyle } from "../styles/Home/Home.style";
 import { useEffect, useState } from "react";
 import getRecommendBooksData from "../apis/books/getRecommendBooks";
-import getLibrarianBooksData from "../apis/books/getLibrariabBooksData";
+import postSearchBooks from "../apis/books/postSearchBooks";
 import { ScrollView } from "react-native-gesture-handler";
 import Timer from "../components/home/timer";
 
@@ -26,8 +26,10 @@ const HomeScreen = ({ navigation }) => {
         setIsLoading(false);
     }, []);
 
-    const SearchSubmitHandler = () => {
-        // call api
+    const SearchSubmitHandler = async () => {
+        const data = await postSearchBooks(searchInput);
+
+        navigation.navigate("Search", { booksData: data });
     };
 
     return (
@@ -40,7 +42,7 @@ const HomeScreen = ({ navigation }) => {
                         value={searchInput}
                         onChangeText={setSearchInput}
                         placeholder="검색할 책을 입력해주세요"
-                        onSubmit={SearchSubmitHandler}
+                        onSubmitEditing={SearchSubmitHandler}
                     />
                     <View style={HomeScreenStyle.RecommendSection}>
                         <Text style={HomeScreenStyle.Title}>요즘 인기 있는 책이에요!</Text>

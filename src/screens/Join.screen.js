@@ -1,6 +1,7 @@
 import { ScrollView, View, TouchableOpacity, TextInput, Text, Image } from "react-native";
 import { JoinStyle } from "../styles/Join/Join.style";
 import { useState } from "react";
+import postJoinHandler from "../apis/users/postJoin";
 
 const JoinScreen = () => {
     const [email, setEmail] = useState();
@@ -8,19 +9,27 @@ const JoinScreen = () => {
     const [password, setPassword] = useState();
     const [confirmPassword, setConfirmPassword] = useState();
 
-    return(
-        <ScrollView 
+    const SubmitJoinHandler = async () => {
+        if (password !== confirmPassword) {
+            return;
+        }
+
+        const data = await postJoinHandler(email, password);
+    }
+
+    return (
+        <ScrollView
             keyboardShouldPersistTaps="handled"
             contentContainerStyle={JoinStyle.Container}
         >
             <View style={JoinStyle.JoinBox}>
-                <Image 
-                    source={require("../../assets/Logo.png")} 
+                <Image
+                    source={require("../../assets/Logo.png")}
                     style={JoinStyle.Logo}
                 />
                 <View style={JoinStyle.InputSection}>
-                    <TextInput 
-                        style={JoinStyle.Input} 
+                    <TextInput
+                        style={JoinStyle.Input}
                         onChangeText={(value) => {
                             setEmail(value);
                         }}
@@ -28,16 +37,16 @@ const JoinScreen = () => {
                         placeholder="이메일"
                         keyboardType="email-address"
                     />
-                    <TextInput 
+                    <TextInput
                         style={JoinStyle.Input}
                         onChangeText={(value) => {
                             setName(value);
                         }}
                         value={name}
-                        placeholder="이름" 
+                        placeholder="이름"
                     />
-                    <TextInput 
-                        style={JoinStyle.Input} 
+                    <TextInput
+                        style={JoinStyle.Input}
                         onChangeText={(value) => {
                             setPassword(value);
                         }}
@@ -45,8 +54,8 @@ const JoinScreen = () => {
                         placeholder="비밀번호"
                         secureTextEntry={true}
                     />
-                    <TextInput 
-                        style={JoinStyle.Input} 
+                    <TextInput
+                        style={JoinStyle.Input}
                         onChangeText={(value) => {
                             setConfirmPassword(value);
                         }}
@@ -56,7 +65,7 @@ const JoinScreen = () => {
                     />
                 </View>
                 <View style={JoinStyle.ButtonSection}>
-                    <TouchableOpacity style={JoinStyle.Button}>
+                    <TouchableOpacity style={JoinStyle.Button} onPress={SubmitJoinHandler}>
                         <Text style={JoinStyle.ButtonText}>회원가입</Text>
                     </TouchableOpacity>
                 </View>
