@@ -52,7 +52,7 @@ const LoginScreen = ({ isLogin: { isLogin, setIsLogin } }) => {
                             로그인
                         </Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={LoginStyle.Button}>
+                    <TouchableOpacity style={LoginStyle.Button} onPress={() => navigator.navigate("Join")}>
                         <Text style={LoginStyle.ButtonText}>
                             회원가입
                         </Text>
