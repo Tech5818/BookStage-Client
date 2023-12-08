@@ -21,7 +21,7 @@ export const BreakChart = () => {
             strokeWidth: 2 // optional
           }
         ],  
-        legend: ["월 별 읽은 책 수"] // optional
+        // legend: ["월 별 읽은 책 수"] // optional
       };
     return(
         <View style={styles.container}>

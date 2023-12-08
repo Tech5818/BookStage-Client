@@ -6,6 +6,7 @@ const HomeScreen = ({ navigation }) => {
         <Button title="Go to view page" onPress={() => navigation.navigate("View")} />
         <Button title="Go to Map page" onPress={() => navigation.navigate("Map")} />
         <Button title="Go to chart page" onPress={() => navigation.navigate("Chart")} />
+        <Button title="login" onPress={() => navigation.navigate("Login")}/>
     </View>
 }
 
