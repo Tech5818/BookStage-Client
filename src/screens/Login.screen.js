@@ -3,6 +3,7 @@ import { LoginStyle } from "../styles/Login/Login.style";
 import { useState } from "react";
 import postLoginHandler from "../apis/users/postLogin";
 import { useNavigation } from "@react-navigation/core";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const LoginScreen = ({ isLogin: { isLogin, setIsLogin } }) => {
     const navigator = useNavigation();
@@ -10,11 +11,22 @@ const LoginScreen = ({ isLogin: { isLogin, setIsLogin } }) => {
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
 
+    const storeData = async (key, data) => {
+        try {
+            await AsyncStorage.setItem(key, data);
+            return{"success": true}
+        } catch(error) {
+            console.error(error);
+        }
+    }
+
     const SubmitLoginHandler = async () => {
         const data = await postLoginHandler(email, password);
 
         if (!!data) {
-            // storage에 저장해주세용
+            storeData("Token", data);
+            storeData("email", email);
+            console.log(data);
             setIsLogin(true);
         }
     }
