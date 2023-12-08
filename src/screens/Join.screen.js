@@ -5,7 +5,6 @@ import postJoinHandler from "../apis/users/postJoin";
 
 const JoinScreen = () => {
     const [email, setEmail] = useState();
-    const [name, setName] = useState();
     const [password, setPassword] = useState();
     const [confirmPassword, setConfirmPassword] = useState();
 
@@ -24,7 +23,7 @@ const JoinScreen = () => {
         >
             <View style={JoinStyle.JoinBox}>
                 <Image
-                    source={require("../../assets/Logo.png")}
+                    source={require("../../assets/Sign_In.png")}
                     style={JoinStyle.Logo}
                 />
                 <View style={JoinStyle.InputSection}>
@@ -36,14 +35,6 @@ const JoinScreen = () => {
                         value={email}
                         placeholder="이메일"
                         keyboardType="email-address"
-                    />
-                    <TextInput
-                        style={JoinStyle.Input}
-                        onChangeText={(value) => {
-                            setName(value);
-                        }}
-                        value={name}
-                        placeholder="이름"
                     />
                     <TextInput
                         style={JoinStyle.Input}
