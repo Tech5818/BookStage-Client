@@ -9,7 +9,8 @@ const TimerStyle = StyleSheet.create({
         width: Dimensions.get("screen").width - 30,
         height: 200,
         margin: 10,
-        borderRadius: 10
+        borderRadius: 10,
+        alignItems: 'center',
     },
 
     title: {
@@ -25,7 +26,7 @@ const TimerStyle = StyleSheet.create({
         width: "auto",
         height: 80,
         flexDirection: "row",
-        justifyContent: "space-around",
+        gap: 20,
         alignItems: 'center',
         marginTop: 30
     },
