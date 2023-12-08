@@ -14,6 +14,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import { faPenToSquare } from "@fortawesome/free-solid-svg-icons";
 import { CurrentConnect } from "./CurrentConnect";
+import { getData } from "../../util/AsyncStorage";
 
 const styles = StyleSheet.create({
   container : {
@@ -43,7 +44,16 @@ export const Profile = () => {
       }
     };
 
+    const getEmail = async () => {
+      const data = await getData("email");
+
+      if (!!data) {
+        console.log(data.data);
+      }
+    }
+
     getNameFromStorage();
+    getEmail();
   }, []);
 
   const submitHandler = async () => {

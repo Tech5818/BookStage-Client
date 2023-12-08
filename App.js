@@ -1,33 +1,30 @@
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
-import AsyncStorage from "@react-native-async-storage/async-storage"
 import { HomeScreen, LoginScreen, JoinScreen, ChartScreen, ViewScreen, RecordScreen, MyScreen, MapScreen, SearchScreen } from "./src/screens/index";
 import { SafeAreaView } from 'react-native';
 import { BottomBar } from './src/components/bottom_bar/BottomBar';
 import AppStyle from './src/styles/App.style';
 import { useEffect, useState } from 'react';
+import { getData } from './src/util/AsyncStorage';
 
 const NavigatorStack = createStackNavigator();
 
 export default function App() {
   const [isLogin, setIsLogin] = useState(false);
 
-  const getUserInfo = async () => {
-    try {
-      const user = await AsyncStorage.getItem("user");
 
-      if (!!user) {
+
+  useEffect(() => {
+    const checkLogin = async () => {
+      const data = await getData("Token");
+
+      if (data.success) {
         setIsLogin(true);
       } else {
         setIsLogin(false);
       }
-    } catch {
-      setIsLogin(false);
     }
-  }
-
-  useEffect(() => {
-    getUserInfo();
+    checkLogin();
   }, [])
 
   return (<SafeAreaView style={AppStyle.container}>
