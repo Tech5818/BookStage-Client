@@ -5,7 +5,7 @@ import ViewScreenStyle from "../styles/View/View.style";
 import { ScrollView, TouchableOpacity } from "react-native-gesture-handler";
 import BookImage from "../components/View/BookImage.comp";
 
-const ViewScreen = ({ navigation, props }) => {
+const ViewScreen = ({ navigation, route }) => {
     const [bookData, setBookData] = useState({
         author: "",
         description: "",
@@ -37,7 +37,7 @@ const ViewScreen = ({ navigation, props }) => {
 
     useEffect(() => {
         const loadBookData = async () => {
-            const { data } = await getOneBookData("불편한 편의점");
+            const { data } = await getOneBookData(route.params.bookName);
             setBookData({ author: data.author, description: data.description, image: data.image, title: data.title });
             setIsLoading(false);
         }
@@ -46,7 +46,6 @@ const ViewScreen = ({ navigation, props }) => {
     }, []);
 
     return <View style={ViewScreenStyle.container}>
-        <View style={ViewScreenStyle.topBackgroundCircle} />
         {isLoading && <Text>Loading...</Text>}
         {
             !isLoading &&

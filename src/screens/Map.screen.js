@@ -1,4 +1,4 @@
-import { View } from "react-native";
+import { View, Text } from "react-native";
 import MapScreenStyle from "../styles/Map/Map.style";
 import * as Location from "expo-location";
 import MapView, { Marker } from "react-native-maps";
@@ -9,6 +9,7 @@ const MapScreen = () => {
     const [location, setLocation] = useState(null);
     const [errorMsg, setErrorMsg] = useState(null);
     const [libraries, setLibraries] = useState(null);
+    const [loading, setLoading] = useState(true);
 
     /**  사용자의 현재 위치를 가져옴
      * @author Yun Jisang
@@ -32,10 +33,12 @@ const MapScreen = () => {
 
         getUserLocation();
         getLocationLibraries();
+        setLoading(false);
     }, [])
 
 
     return <>
+        {loading && <Text>Loading...</Text>}
         {errorMsg && <Text>{errorMsg}</Text>}
         {
             location && <View style={MapScreenStyle.container}>
@@ -45,6 +48,10 @@ const MapScreen = () => {
                     latitudeDelta: 0.00922,
                     longitudeDelta: 0.00321,
                 }} >
+                    <Marker coordinate={{
+                        latitude: location.coords.latitude,
+                        longitude: location.coords.longitude,
+                    }} pinColor="#3B63DF" title="내 위치" description="현재 내가 있는 위치예요" />
                     {
                         libraries && libraries.map((value, idx) => {
                             return <Marker
