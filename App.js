@@ -37,7 +37,6 @@ export default function App() {
           <NavigatorStack.Screen name="Home" component={HomeScreen} options={{
             title: "BOOKSTAGE", headerTitleAlign: "center"
           }} />
-          <NavigatorStack.Screen name="Join" component={JoinScreen} />
           <NavigatorStack.Screen name="My" component={MyScreen} />
           <NavigatorStack.Screen name="Chart" component={ChartScreen} options={{ title: "통계" }}/>
           <NavigatorStack.Screen name="Record" component={RecordScreen} />
@@ -48,8 +47,9 @@ export default function App() {
     </NavigationContainer>
     ) : (
       <NavigationContainer>
-        <NavigatorStack.Navigator>
+        <NavigatorStack.Navigator initialRouteName="Login">
           <NavigatorStack.Screen name="Login" component={LoginScreen} options={{ headerShown: false }} />
+          <NavigatorStack.Screen name="Join" component={JoinScreen} options={{ title: "회원가입" }} />
         </NavigatorStack.Navigator>
       </NavigationContainer>
     )}

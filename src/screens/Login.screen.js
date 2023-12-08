@@ -1,8 +1,11 @@
 import { ScrollView, View, TextInput, Image, TouchableOpacity, Text } from "react-native";
 import { LoginStyle } from "../styles/Login/Login.style";
 import { useState } from "react";
+import { useNavigation } from "@react-navigation/core";
 
 const LoginScreen = () => {
+    const navigator = useNavigation();
+
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
 
@@ -39,7 +42,12 @@ const LoginScreen = () => {
                                 로그인
                             </Text>
                         </TouchableOpacity>
-                        <TouchableOpacity style={LoginStyle.Button}>
+                        <TouchableOpacity 
+                            style={LoginStyle.Button}
+                            onPress={() => {
+                                navigator.navigate("Join");
+                            }}
+                        >
                             <Text style={LoginStyle.ButtonText}>
                                 회원가입
                             </Text>
