@@ -1,6 +1,8 @@
 import { View, Text, StyleSheet } from "react-native"
 import { chartConfig } from "../ChartConfig";
 import { BarChart } from "react-native-chart-kit";
+import { getStatistic } from "../../../apis/statistic/getStatistic";
+import { useState } from "react";
 
 const styles = StyleSheet.create({
     container:{
@@ -23,6 +25,8 @@ export const StickChart = () => {
         ],
         
       };
+      const serverData = getStatistic();
+      console.log(serverData)
     return(
         <View style={styles.container}>
             <BarChart
